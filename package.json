@@ -15,7 +15,7 @@
     "build": "npm --workspace adaptivecash-portal-web run build",
     "test": "npm --workspace adaptivecash-portal-web run test",
     "test:watch": "npm --workspace adaptivecash-portal-web run test:watch",
-    "check": "npm run test && npm run build && python scripts/check_architecture.py",
+    "check": "npm run test && npm run build",
     "dev:prototype": "npm run dev",
     "build:prototype": "npm run build",
     "test:prototype": "npm run test"

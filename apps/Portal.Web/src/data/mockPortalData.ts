@@ -42,7 +42,7 @@ export const evidenceEvents: EvidenceEvent[] = [
 export const pipelineRuns: PipelineRun[] = [
   { name: 'Portal.Api', stage: 'Build + OpenAPI', result: 'Succeeded', duration: '2m 18s', commit: 'phase05' },
   { name: 'Portal.Web', stage: 'Typecheck + Vite build', result: 'Running', duration: '1m 04s', commit: 'routed-ui' },
-  { name: 'Architecture gates', stage: 'Python checks', result: 'Succeeded', duration: '12s', commit: 'phase05' },
+  { name: 'Frontend verification', stage: 'Tests and build', result: 'Succeeded', duration: '12s', commit: 'phase05' },
   { name: 'Legacy aDocs sandbox', stage: 'Phase 0.5 real run', result: 'Waiting', duration: 'pending', commit: 'manual' }
 ];
 

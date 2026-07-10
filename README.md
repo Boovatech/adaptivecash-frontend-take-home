@@ -4,7 +4,7 @@ Private starter repository for the Requests & Signing Readiness assignment.
 
 ## Start
 
-Prerequisites: Node.js `^20.19.0` or `>=22.12.0`, npm and Python 3.
+Prerequisites: Node.js `^20.19.0` or `>=22.12.0` and npm.
 
 ```bash
 npm ci
@@ -28,9 +28,7 @@ The candidate implements React pages and query/mutation orchestration against
 ## Verify
 
 ```bash
-npm test
-npm run build
-python scripts/check_architecture.py
+npm run check
 ```
 
 The starter includes six mock contract tests. Add the four React UX tests

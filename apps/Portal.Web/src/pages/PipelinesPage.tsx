@@ -7,7 +7,7 @@ export function PipelinesPage({ pipelineRuns }: { pipelineRuns: PipelineRun[] })
       <SectionHeader
         eyebrow="Pipelines"
         title="Build and verification status"
-        description="Prototype view for CI/CD, architecture gates and Phase 0.5 aDocs tracer evidence."
+        description="Prototype view for CI/CD quality checks and Phase 0.5 aDocs tracer evidence."
       />
       <div className="grid gap-2.5">
         {pipelineRuns.map((run) => (
