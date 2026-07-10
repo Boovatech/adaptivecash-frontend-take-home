@@ -1,0 +1,16 @@
+bin/
+obj/
+*.user
+.vs/
+node_modules/
+dist/
+.vite/
+coverage/
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.key
+*.log
+.claude/plan-session-link.current.json

@@ -1,0 +1,9 @@
+<div id="root"></div>
+<script>
+  window.addEventListener('error', (e) => {
+    document.getElementById('root').innerHTML =
+      '<pre style="white-space:pre-wrap;color:red;padding:16px">' +
+      String((e.error && e.error.stack) || e.message) + '</pre>';
+  });
+</script>
+<script type="module" src="/src/main.tsx"></script>

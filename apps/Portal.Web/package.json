@@ -1,0 +1,39 @@
+{
+  "name": "adaptivecash-portal-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "@adaptivecash/api-client": "*",
+    "@adaptivecash/design-tokens": "*",
+    "@adaptivecash/shared-ui": "*",
+    "@adaptivecash/business-ui": "*",
+    "@adaptivecash/testing": "*",
+    "@fluentui/react-components": "^9",
+    "@fluentui/react-icons": "^2",
+    "@tanstack/react-query": "^5",
+    "zustand": "^5"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@vitejs/plugin-react": "6.0.3",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "typescript": "6.0.3",
+    "vite": "8.1.3",
+    "vitest": "4.1.10",
+    "jsdom": "29.1.1",
+    "tailwindcss": "^4",
+    "@tailwindcss/vite": "^4"
+  }
+}

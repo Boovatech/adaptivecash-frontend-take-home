@@ -1,0 +1,64 @@
+/* AdaptiveCash Portal design tokens — "The Ledger Desk" (DESIGN.md). */
+:root {
+  /* Brand */
+  --ac-primary: oklch(0.58 0.15 55);
+  --ac-primary-deep: oklch(0.47 0.14 52);
+  --ac-secondary: oklch(0.28 0.05 245);
+  --ac-secondary-deep: oklch(0.18 0.04 245);
+  --ac-on-secondary: white;
+  --ac-on-secondary-muted: color-mix(in oklch, white 82%, var(--ac-secondary));
+  --ac-on-secondary-surface: color-mix(in oklch, white 14%, transparent);
+  --ac-on-secondary-line: color-mix(in oklch, white 28%, transparent);
+
+  /* Neutrals */
+  --ac-bg: oklch(1 0 0);
+  --ac-surface: oklch(0.97 0.004 250);
+  --ac-surface-overlay: color-mix(in oklch, var(--ac-bg) 64%, transparent);
+  --ac-ink: oklch(0.22 0.01 250);
+  --ac-ink-muted: oklch(0.46 0.01 250);
+  --ac-line: oklch(0.89 0.004 250);
+  --ac-line-soft: oklch(0.93 0.003 250);
+
+  /* Status */
+  --ac-success: oklch(0.45 0.12 145);
+  --ac-success-bg: oklch(0.94 0.045 145);
+  --ac-warning: oklch(0.45 0.11 65);
+  --ac-warning-bg: oklch(0.94 0.05 85);
+  --ac-danger: oklch(0.44 0.15 25);
+  --ac-danger-bg: oklch(0.94 0.045 25);
+
+  /* Elevation */
+  --ac-shadow-resting: 0 1px 2px rgba(23, 27, 33, 0.06);
+  --ac-shadow-raised: 0 8px 24px rgba(23, 27, 33, 0.10);
+
+  /* Radius */
+  --ac-radius-sm: 4px;
+  --ac-radius-md: 6px;
+  --ac-radius-lg: 10px;
+  --ac-radius-pill: 999px;
+
+  /* Type */
+  --ac-font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ac-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Type roles (font shorthand: weight size/line-height family) */
+  --ac-type-title: 600 1.5rem/1.3 var(--ac-font-sans);
+  --ac-type-section: 600 1rem/1.4 var(--ac-font-sans);
+  --ac-type-body: 400 0.875rem/1.5 var(--ac-font-sans);
+  --ac-type-caption: 400 0.75rem/1.4 var(--ac-font-sans);
+
+  /* Semantic spacing */
+  --ac-space-1: 4px;
+  --ac-space-2: 8px;
+  --ac-space-3: 12px;
+  --ac-space-4: 16px;
+  --ac-space-5: 20px;
+  --ac-space-6: 24px;
+
+  /* AI rail surfaces */
+  --ac-ai-question-bg: var(--ac-surface);
+  --ac-ai-answer-bg: color-mix(in oklch, var(--ac-secondary) 8%, var(--ac-bg));
+  --ac-ai-icon-bg: var(--ac-secondary);
+  --ac-ai-icon-fg: var(--ac-on-secondary);
+  --ac-ai-disclosure: var(--ac-ink-muted);
+}
