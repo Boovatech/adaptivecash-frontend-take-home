@@ -15,6 +15,7 @@ import { SideNav } from './SideNav';
 import { ContextRail } from './ContextRail';
 import { navItems, usePortalRoute, type RouteState } from './routes';
 import {RequestDetailPage} from "../pages/RequestDetailsPage";
+import { RequestsPage } from "../pages/RequestsPage";
 
 function primaryLabelFor(route: RouteState) {
   if (route.hub === 'boards' || route.hub === 'documents') return 'New document';
@@ -44,6 +45,9 @@ export function AppShell() {
     switch (route.hub) {
       case 'boards':
         page = <BoardsPage documents={snapshot.documents} navigate={navigate} />;
+        break;
+      case 'requests':
+        page = <RequestsPage navigate={navigate} />;
         break;
       case 'documents':
         page = <DocumentsPage snapshot={snapshot} navigate={navigate} />;
