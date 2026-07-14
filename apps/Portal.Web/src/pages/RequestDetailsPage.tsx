@@ -4,6 +4,8 @@ import { Button, Link, Spinner } from "@fluentui/react-components";
 import { PortalApiError, RequestEvidenceEvent } from "@adaptivecash/api-client";
 import { Panel, StatePill, Text } from "@adaptivecash/shared-ui";
 import { RequestStatusPill, TimelineItem } from "@adaptivecash/business-ui";
+import { useState } from "react";
+import { SigningDialog } from "../components/signing/SigningDialog";
 
 const dateFmt = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
@@ -33,6 +35,7 @@ export function RequestDetailPage({ requestId, navigate }: {
   navigate: (path: string) => void;
 }) {
   const { data, isLoading, isError, refetch, error } = useRequestQuery(requestId);
+  const [signingOpen, setSigningOpen] = useState(false);
 
   const backLink = (
     <Link as="button" className="mb-3 inline-flex items-center gap-1" onClick={() => navigate("/requests")}>
@@ -110,7 +113,8 @@ export function RequestDetailPage({ requestId, navigate }: {
             ) : (
               <ul className="m-0 list-none p-0">
                 {data.documents.map((doc) => (
-                  <li key={doc.id} className="border-b py-3 last:border-b-0" style={{ borderColor: "var(--ac-line-soft)" }}>
+                  <li key={doc.id} className="border-b py-3 last:border-b-0"
+                      style={{ borderColor: "var(--ac-line-soft)" }}>
                     <div className="flex items-center justify-between gap-3">
                       <strong className="font-semibold">{doc.name}</strong>
                       <StatePill value={doc.status} tone={doc.status === "Ready" ? "green" : "orange"} />
@@ -170,11 +174,14 @@ export function RequestDetailPage({ requestId, navigate }: {
             <h3 className="mb-2 text-base font-semibold">Next
               action</h3>
             <p className="mt-0 text-sm">{data.nextAction}</p>
-            
+
             {canSign && (
-              <Button appearance="primary" className="mt-2 w-full" disabled>
+              <Button appearance="primary" className="mt-2 w-full" onClick={() => setSigningOpen(true)}>
                 Review and sign
               </Button>
+            )}
+            {signingOpen && canSign && (
+              <SigningDialog request={data} onClose={() => setSigningOpen(false)} />
             )}
           </Panel>
         </aside>
