@@ -21,6 +21,23 @@ function primaryLabelFor(route: RouteState) {
   return 'New item';
 }
 
+export function StarterNotice() {
+  return (
+    <div
+      role="status"
+      aria-label="Starter prototype"
+      className="border-b px-[18px] py-2 text-sm"
+      style={{
+        background: 'var(--ac-warning-bg)',
+        borderColor: 'var(--ac-warning)',
+        color: 'var(--ac-ink)'
+      }}
+    >
+      <strong>Starter prototype.</strong> Existing hubs are demo context; implement the Requests flow described in the assignment and remove this notice in your submission.
+    </div>
+  );
+}
+
 export function AppShell() {
   const { route, navigate } = usePortalRoute();
   const { data, isLoading } = usePortalSnapshot();
@@ -63,8 +80,9 @@ export function AppShell() {
   }
 
   return (
-    <main className="grid min-h-screen grid-rows-[48px_42px_1fr]" style={{ background: 'var(--ac-bg)', color: 'var(--ac-ink)' }}>
+    <main className="grid min-h-screen grid-rows-[48px_auto_42px_1fr]" style={{ background: 'var(--ac-bg)', color: 'var(--ac-ink)' }}>
       <TopBar dataState={dataState} />
+      <StarterNotice />
       <div className="flex min-w-0 items-center gap-2.5 border-b px-[18px]" style={{ borderColor: 'var(--ac-line)' }}>
         <span
           className="grid h-7 w-7 place-items-center rounded"

@@ -81,7 +81,7 @@ Stretch goals не впливають на основний бал.
 
 ## 4. Початок роботи
 
-Starter repository є приватним. Після отримання GitHub-доступу:
+Після отримання посилання на starter repository:
 
 ```bash
 git clone https://github.com/Boovatech/adaptivecash-frontend-take-home.git
@@ -89,6 +89,17 @@ cd adaptivecash-frontend-take-home
 npm ci
 npm run dev
 ```
+
+Після запуску ви побачите **робочий prototype shell**, а не готове рішення.
+Наявні hubs (`Overview`, `Boards`, `Documents`, `Signing` та інші) — статичний
+demo context для візуальної й архітектурної орієнтації. Їх не потрібно
+«ремонтувати» або завершувати. Scope завдання — додати нові routes `/requests`
+і `/requests/:requestId` згідно з розділами нижче. Видаліть видиме повідомлення
+`Starter prototype` перед здачею роботи.
+
+На Windows перший чистий `npm ci` може тривати кілька хвилин через розпакування
+Fluent UI packages. Дочекайтеся повідомлення `added ... packages`, після чого
+запускайте `npm run dev`.
 
 Для перевірки:
 

@@ -1,6 +1,13 @@
 # AdaptiveCash Frontend Take-Home
 
-Private starter repository for the Requests & Signing Readiness assignment.
+Starter repository for the Requests & Signing Readiness assignment.
+
+The application you see after startup is a working **prototype shell**, not a
+finished solution and not a set of broken product features. Existing hubs are
+static demo context. Your implementation scope is the new `/requests` and
+`/requests/:requestId` flow described in the assignment; you do not need to
+repair or complete the other hubs. Remove the visible starter notice when your
+submission is ready.
 
 ## Start
 
@@ -10,6 +17,10 @@ Prerequisites: Node.js `^20.19.0` or `>=22.12.0` and npm.
 npm ci
 npm run dev
 ```
+
+On Windows, the first clean `npm ci` can take several minutes while Fluent UI
+packages are unpacked. Wait for the final `added ... packages` message before
+starting the app.
 
 Open `http://localhost:5174`. The full assignment is in
 [`docs/hiring/FRONTEND-TAKE-HOME-REQUESTS-AND-SIGNING.md`](docs/hiring/FRONTEND-TAKE-HOME-REQUESTS-AND-SIGNING.md).
