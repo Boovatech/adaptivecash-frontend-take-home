@@ -25,6 +25,14 @@ starting the app.
 Open `http://localhost:5174`. The full assignment is in
 [`docs/hiring/FRONTEND-TAKE-HOME-REQUESTS-AND-SIGNING.md`](docs/hiring/FRONTEND-TAKE-HOME-REQUESTS-AND-SIGNING.md).
 
+### Expected starter state
+
+The existing portal shell and its `Overview`, `Boards`, `Documents`, `Signing`,
+`Evidence`, `Pipelines`, and `AI Assist` hubs should render. The `/requests` and
+`/requests/:requestId` routes are intentionally absent: adding them is the
+candidate's assignment, not a startup failure. Before changing code, run
+`npm run check`; all supplied contract tests and the production build must pass.
+
 ## No backend setup
 
 This repository intentionally contains no .NET service, Docker setup or
