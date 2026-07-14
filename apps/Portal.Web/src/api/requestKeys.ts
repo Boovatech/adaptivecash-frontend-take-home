@@ -1,6 +1,6 @@
 import { RequestListFilters } from "@adaptivecash/api-client";
 
-export const TENANT_ID = 'TENANT_ID';
+export const TENANT_ID = 'ACME-BANK-UA';
 export const requestKeys = {
   all: ['requests', TENANT_ID] as const,
   list: (filters: RequestListFilters) => 
