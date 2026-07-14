@@ -14,6 +14,7 @@ import { TopBar } from './TopBar';
 import { SideNav } from './SideNav';
 import { ContextRail } from './ContextRail';
 import { navItems, usePortalRoute, type RouteState } from './routes';
+import {RequestDetailPage} from "../pages/RequestDetailsPage";
 
 function primaryLabelFor(route: RouteState) {
   if (route.hub === 'boards' || route.hub === 'documents') return 'New document';
@@ -37,6 +38,8 @@ export function AppShell() {
         navigate={navigate}
       />
     );
+  } else if (route.hub === 'requests' && route.requestId) {
+    page = <RequestDetailPage requestId={route.requestId} navigate={navigate} />;
   } else {
     switch (route.hub) {
       case 'boards':
@@ -61,6 +64,14 @@ export function AppShell() {
         page = <OverviewPage snapshot={snapshot} navigate={navigate} />;
     }
   }
+  
+  const detailId = route.documentId ?? route.requestId;
+  const detailLabel = route.hub === 'documents'
+    ? 'Document details'
+    : 'Request details';
+  const detailDescription = route.hub === 'documents'
+    ? 'Version, signers, evidence and workflow facts.'
+    : 'Request facts, documents, evidence and signing';
 
   return (
     <main className="grid min-h-screen grid-rows-[48px_42px_1fr]" style={{ background: 'var(--ac-bg)', color: 'var(--ac-ink)' }}>
@@ -93,16 +104,16 @@ export function AppShell() {
                   <span>AdaptiveCash</span>
                   <span>/</span>
                   <span>{active.label}</span>
-                  {route.documentId && (
+                  {detailId && (
                     <>
                       <span>/</span>
-                      <span>{route.documentId}</span>
+                      <span>{detailId}</span>
                     </>
                   )}
                 </>
               }
-              title={route.documentId ? 'Document detail' : active.label}
-              description={route.documentId ? 'Version, signers, evidence and workflow facts.' : active.description}
+              title={detailId ? detailLabel : active.label}
+              description={detailId ? detailDescription : active.description}
               tabs={
                 <TabList defaultSelectedValue="mine" size="small">
                   <Tab value="mine">Mine</Tab>

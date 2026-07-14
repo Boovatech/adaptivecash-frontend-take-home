@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
-export type Hub = 'overview' | 'boards' | 'documents' | 'signing' | 'evidence' | 'pipelines' | 'agents';
+export type Hub = 'overview' | 'boards' | 'documents' | 'signing' | 'evidence' | 'pipelines' | 'agents' | 'requests';
 
 export interface RouteState {
   hub: Hub;
   path: string;
   documentId?: string;
+  requestId?: string;
 }
 
 export interface NavItem {
@@ -19,6 +20,7 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   { id: 'overview', label: 'Overview', path: '/', icon: '⌂', description: 'Project dashboard' },
   { id: 'boards', label: 'Boards', path: '/boards', icon: '▦', description: 'Workflow board' },
+  { id: 'requests', label: 'Requests', path: '/requests', icon: '≡', description: 'Requests and signing' },
   { id: 'documents', label: 'Documents', path: '/documents', icon: '▤', description: 'Inbox and review' },
   { id: 'signing', label: 'Signing', path: '/signing', icon: '✒', description: 'Signer queues' },
   { id: 'evidence', label: 'Evidence', path: '/evidence', icon: '◈', description: 'Audit trail' },
@@ -28,10 +30,16 @@ export const navItems: NavItem[] = [
 
 export function parseRoute(pathname: string): RouteState {
   const path = pathname.replace(/\/$/, '') || '/';
+  
   const docMatch = path.match(/^\/documents\/([^/]+)$/);
   if (docMatch) return { hub: 'documents', path, documentId: decodeURIComponent(docMatch[1]) };
+
+  const requestMatch = path.match(/^\/requests\/([^/]+)$/);
+  if (requestMatch) return { hub: 'requests', path, requestId: decodeURIComponent(requestMatch[1]) };
+  
   if (path === '/boards') return { hub: 'boards', path };
   if (path === '/documents') return { hub: 'documents', path };
+  if (path === '/requests') return { hub: 'requests', path };
   if (path === '/signing') return { hub: 'signing', path };
   if (path === '/evidence') return { hub: 'evidence', path };
   if (path === '/pipelines') return { hub: 'pipelines', path };
