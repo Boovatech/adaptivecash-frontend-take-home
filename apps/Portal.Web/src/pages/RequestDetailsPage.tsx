@@ -180,7 +180,10 @@ export function RequestDetailPage({ requestId, navigate }: {
                 Review and sign
               </Button>
             )}
-            {signingOpen && canSign && (
+            {/* Lifetime depends only on `signingOpen`: once signing starts the
+                request flips to `Signing` (canSign=false), and gating on it here
+                would unmount the dialog mid-flow and kill its poll. */}
+            {signingOpen && (
               <SigningDialog request={data} onClose={() => setSigningOpen(false)} />
             )}
           </Panel>

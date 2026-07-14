@@ -27,6 +27,8 @@ export function SigningDialog({ request, onClose }: {
 }) {
   const idempotencyKey = useRef<string>(null);
   if (!idempotencyKey.current) idempotencyKey.current = crypto.randomUUID();
+  
+  const fired = useRef(false);
 
   const doc = request.documents.find((d) =>
     d.status === "Ready") ?? request.documents[0];
@@ -41,7 +43,8 @@ export function SigningDialog({ request, onClose }: {
   const confirmDisabled = create.isPending || Boolean(create.data) || !doc;
 
   const confirm = () => {
-    if (confirmDisabled) return;
+    if (fired.current || confirmDisabled) return;
+    fired.current = true;
 
     const command: CreateSigningSessionCommand = {
       requestId: request.id,
@@ -49,7 +52,12 @@ export function SigningDialog({ request, onClose }: {
       versionHash: doc.versionHash,
       idempotencyKey: idempotencyKey.current!,
     };
-    create.mutate(command);
+
+    create.mutate(command, {
+      onError: () => {
+        fired.current = false;
+      }
+    });
   };
 
   const createError = create.error instanceof PortalApiError

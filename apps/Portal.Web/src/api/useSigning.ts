@@ -36,7 +36,8 @@ export function useSigningSessionQuery(sessionId: string | undefined, requestId:
     },
     refetchInterval: (query) => {
       const status = query.state.data?.status;
-      return status && isTerminalSigning(status) ? false : 10_000;
+      return status && isTerminalSigning(status) ? false : 1_500;
     },
+    refetchIntervalInBackground: true,
   })
 }
