@@ -11,3 +11,12 @@ export function useRequestsQuery(filters: RequestListFilters) {
     placeholderData: keepPreviousData,
   });
 }
+
+export function useRequestQuery(requestId: string) {
+  return useQuery({
+    queryKey: requestKeys.detail(requestId),
+    queryFn: ({ signal }) =>
+      requestsApi.getRequest(requestId, signal),
+    enabled: Boolean(requestId),
+  })
+}

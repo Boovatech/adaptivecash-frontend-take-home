@@ -66,6 +66,7 @@ const dateFmt = new Intl.DateTimeFormat('en-GB', {
   minute: '2-digit'
 });
 
+// TODO: move to the shared utils
 function formatWhen(iso: string): string {
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? iso : dateFmt.format(d);
