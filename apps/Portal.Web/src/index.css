@@ -1,29 +1,243 @@
 @import "tailwindcss";
-/* Workspace packages resolve through node_modules symlinks, which Tailwind's
-   auto-detection skips — scan their sources explicitly. */
 @source "../../../packages";
 
-body {
+:root {
+  color: var(--ac-ink);
+  background: var(--ac-bg);
   font-family: var(--ac-font-sans);
+  font-synthesis: none;
 }
 
-.route-page {
-  animation: route-fade 0.12s ease-out;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.starter-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--ac-line) 35%, transparent) 1px, transparent 1px) 0 0 / 32px 32px,
+    var(--ac-bg);
+}
+
+.starter-header {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--ac-line);
+  padding: 12px clamp(20px, 5vw, 72px);
+  background: color-mix(in srgb, var(--ac-bg) 92%, transparent);
+}
+
+.starter-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--ac-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.starter-wordmark span,
+.starter-version,
+.route-label {
+  color: var(--ac-ink-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.starter-version {
+  border: 1px solid var(--ac-line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: var(--ac-surface);
+}
+
+.starter-main {
+  width: min(960px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 112px) 0 48px;
+}
+
+.starter-intro {
+  max-width: 760px;
+}
+
+.starter-kicker {
+  margin-bottom: 16px;
+  color: var(--ac-primary-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.starter-intro h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2.35rem, 6vw, 4.75rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.starter-intro p {
+  max-width: 690px;
+  margin: 28px 0 0;
+  color: var(--ac-ink-muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.starter-scope {
+  margin-top: 40px;
+  border: 1px solid var(--ac-line);
+  padding: 12px 16px;
+  background: var(--ac-surface);
+  color: var(--ac-ink-muted);
+  line-height: 1.55;
+}
+
+.starter-scope strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ac-secondary-deep);
+  background: var(--ac-surface);
+  font-size: 1.2rem;
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 6vw, 72px);
+  margin-top: 64px;
+}
+
+.scope-list {
+  border-top: 1px solid var(--ac-line);
+  padding-top: 18px;
+}
+
+.scope-list h2,
+.route-brief h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.scope-list ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scope-list li {
+  position: relative;
+  padding: 9px 0 9px 20px;
+  color: var(--ac-ink-muted);
+  line-height: 1.45;
+}
+
+.scope-list li::before {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ac-primary-deep);
+  content: '';
+}
+
+.route-brief {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 72px;
+  border: 1px solid var(--ac-line);
+  padding: 24px;
+  background: var(--ac-surface);
+}
+
+.route-label {
+  margin-bottom: 8px;
+}
+
+.route-paths {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+code {
+  overflow-wrap: anywhere;
+  font-family: var(--ac-font-mono);
+  font-size: 0.88em;
+}
+
+.route-paths code {
+  border: 1px solid var(--ac-line);
+  border-radius: 4px;
+  padding: 7px 9px;
+  background: var(--ac-bg);
+}
+
+.starter-footer {
+  margin-top: 28px;
+  color: var(--ac-ink-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .starter-header {
+    align-items: flex-start;
+  }
+
+  .starter-wordmark {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .starter-main {
+    width: min(100% - 32px, 960px);
+    padding-top: 56px;
+  }
+
+  .scope-grid {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+
+  .route-brief {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 48px;
+  }
+
+  .route-paths {
+    justify-content: flex-start;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .route-page {
-    animation: none;
-  }
-}
-
-@keyframes route-fade {
-  from {
-    opacity: 0.82;
-    transform: translateY(2px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
   }
 }

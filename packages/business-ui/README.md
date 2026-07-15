@@ -1,15 +1,8 @@
 # @adaptivecash/business-ui
 
-Reusable AdaptiveCash business components:
+Candidate-owned reusable domain presentation components belong here. The
+starter intentionally exports no finished product components.
 
-- DocumentCard
-- DocumentStatusBadge
-- SignerList
-- WorkflowBoard
-- EvidenceTimeline
-- AuditTrail
-- PermissionGate
-- AIContextRail
-
-Promote a component here only after at least two modules need it or after an
-architecture review declares it platform-level.
+Promote a component only when its props contract is clear and it is useful in
+more than one view or interaction test. API calls, auth and storage remain in
+the application layer.
